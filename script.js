@@ -6,7 +6,7 @@ const artworks = [
         artist: 'Alexandra Chen',
         year: 2023,
         category: 'painting',
-        emoji: '🌸',
+        image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
         price: '$4,500',
         medium: 'Acrylic on Canvas',
         dimensions: '36" x 48"',
@@ -18,7 +18,7 @@ const artworks = [
         artist: 'Marcus Rodriguez',
         year: 2024,
         category: 'photography',
-        emoji: '🏙️',
+        image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
         price: '$3,200',
         medium: 'Archival Pigment Print',
         dimensions: '40" x 60"',
@@ -30,7 +30,7 @@ const artworks = [
         artist: 'Yuki Tanaka',
         year: 2023,
         category: 'sculpture',
-        emoji: '🗿',
+        image: 'https://images.unsplash.com/photo-1526312426976-f4d754fa9bd6?auto=format&fit=crop&w=1200&q=80',
         price: '$8,900',
         medium: 'Marble',
         dimensions: '24" H x 18" W',
@@ -42,7 +42,7 @@ const artworks = [
         artist: 'Sam Williams',
         year: 2024,
         category: 'digital',
-        emoji: '🎨',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
         price: '$2,800',
         medium: 'Digital Art Print',
         dimensions: '24" x 36"',
@@ -54,7 +54,7 @@ const artworks = [
         artist: 'Elena Rossi',
         year: 2023,
         category: 'painting',
-        emoji: '🌅',
+        image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
         price: '$5,200',
         medium: 'Oil on Canvas',
         dimensions: '48" x 36"',
@@ -66,7 +66,7 @@ const artworks = [
         artist: 'David Park',
         year: 2022,
         category: 'sculpture',
-        emoji: '🏛️',
+        image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80',
         price: '$12,500',
         medium: 'Bronze',
         dimensions: '36" H x 28" W',
@@ -78,7 +78,7 @@ const artworks = [
         artist: 'Lisa Morrison',
         year: 2024,
         category: 'photography',
-        emoji: '📷',
+        image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80',
         price: '$2,400',
         medium: 'Fine Art Photograph',
         dimensions: '20" x 30"',
@@ -90,7 +90,7 @@ const artworks = [
         artist: 'James Chen',
         year: 2024,
         category: 'digital',
-        emoji: '⚡',
+        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
         price: '$3,100',
         medium: 'Digital NFT Art',
         dimensions: 'Variable',
@@ -118,7 +118,9 @@ function renderArtworks(filter) {
 
     grid.innerHTML = filtered.map(artwork => `
         <div class="artwork-card" onclick="openModal(${artwork.id})">
-            <div class="artwork-image">${artwork.emoji}</div>
+            <div class="artwork-image">
+                <img src="${artwork.image}" alt="${artwork.title} by ${artwork.artist}" loading="lazy">
+            </div>
             <div class="artwork-info">
                 <div class="artwork-category">${artwork.category}</div>
                 <div class="artwork-title">${artwork.title}</div>
@@ -145,7 +147,9 @@ function openModal(artworkId) {
     selectedArtwork = artworks.find(art => art.id === artworkId);
     
     if (selectedArtwork) {
-        document.getElementById('modalImage').textContent = selectedArtwork.emoji;
+        document.getElementById('modalImage').innerHTML = `
+            <img src="${selectedArtwork.image}" alt="${selectedArtwork.title} by ${selectedArtwork.artist}">
+        `;
         document.getElementById('modalTitle').textContent = selectedArtwork.title;
         document.getElementById('modalArtist').textContent = `by ${selectedArtwork.artist}`;
         document.getElementById('modalYear').textContent = `Year: ${selectedArtwork.year}`;

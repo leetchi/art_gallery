@@ -200,11 +200,14 @@ body {
     width: 100%;
     height: 350px;
     background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
     overflow: hidden;
+}
+
+.artwork-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .artwork-info {
@@ -299,11 +302,163 @@ body {
 .modal-image {
     background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
     height: 500px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Exhibitions Section */
+.exhibition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.exhibition-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exhibition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.exhibition-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.exhibition-info {
+    padding: 24px;
+}
+
+.exhibition-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.exhibition-info p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.exhibition-meta {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+/* Artists Section */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.artist-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    overflow: hidden;
+}
+
+.artist-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-info {
+    padding: 22px;
+}
+
+.artist-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.artist-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Services Section */
+.services-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.services-text h3 {
+    font-size: 22px;
+    margin: 0 0 12px 0;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.services-text p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.services-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--border-color);
+}
+
+/* Newsletter Section */
+.newsletter-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 150px;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px;
     border: 1px solid var(--border-color);
+    background: var(--light-gray);
+}
+
+.newsletter-content h2 {
+    margin-bottom: 15px;
+}
+
+.newsletter-content p {
+    font-size: 15px;
+    color: #555;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.newsletter-form input {
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    min-width: 240px;
+    font-size: 14px;
 }
 
 .modal-info h2 {
@@ -567,6 +722,20 @@ body {
 
     .filter-controls {
         justify-content: center;
+    }
+
+    .services-content {
+        grid-template-columns: 1fr;
+    }
+
+    .services-image img {
+        height: 320px;
+    }
+
+    .newsletter-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
     }
 }
 

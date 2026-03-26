@@ -16,7 +16,11 @@
             </div>
             <nav class="nav">
                 <a href="#" onclick="showSection('gallery')">Gallery</a>
+                <a href="#" onclick="showSection('exhibitions')">Exhibitions</a>
+                <a href="#" onclick="showSection('artists')">Artists</a>
+                <a href="#" onclick="showSection('services')">Services</a>
                 <a href="#" onclick="showSection('about')">About</a>
+                <a href="#" onclick="showSection('newsletter')">Circle</a>
                 <a href="#" onclick="showSection('contact')">Contact</a>
             </nav>
         </div>
@@ -46,6 +50,88 @@
 
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Artworks will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions Section -->
+    <section id="exhibitions" class="section">
+        <div class="container">
+            <h2>Current Exhibitions</h2>
+            <div class="exhibition-grid">
+                <article class="exhibition-card">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80" alt="Abstract mixed media installation" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Light & Form</h3>
+                        <p>Immersive installations exploring shadow, movement, and architectural space.</p>
+                        <span class="exhibition-meta">On view in the Atrium</span>
+                    </div>
+                </article>
+                <article class="exhibition-card">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80" alt="Colorful abstract painting on wall" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Chromatic Fields</h3>
+                        <p>Large-scale paintings that investigate color theory, texture, and rhythm.</p>
+                        <span class="exhibition-meta">Main Gallery</span>
+                    </div>
+                </article>
+                <article class="exhibition-card">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Gallery scene with visitors and photography" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Still City</h3>
+                        <p>Contemporary photography highlighting urban geometry and quiet moments.</p>
+                        <span class="exhibition-meta">Photo Wing</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="section">
+        <div class="container">
+            <h2>Artist Spotlight</h2>
+            <div class="artist-grid">
+                <article class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Portrait of artist in studio" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Amara Quinn</h3>
+                        <p>Known for layered acrylics and luminous gradients that evoke motion.</p>
+                    </div>
+                </article>
+                <article class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=900&q=80" alt="Sculptor with clay" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Luca Moretti</h3>
+                        <p>Minimalist stone sculptures focused on balance, weight, and silence.</p>
+                    </div>
+                </article>
+                <article class="artist-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" alt="Photographer with camera" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Jun Park</h3>
+                        <p>Documentary photographer capturing evolving urban landscapes.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Collector Services</h2>
+            <div class="services-content">
+                <div class="services-text">
+                    <h3>Curated Acquisitions</h3>
+                    <p>Work with our curators to build a collection that reflects your taste and goals. We provide transparent provenance, condition reports, and tailored recommendations.</p>
+                    <h3>Private Viewings</h3>
+                    <p>Schedule a private appointment for guided walkthroughs, studio visits, and on-site consultations.</p>
+                    <button class="btn btn-primary" onclick="showSection('contact')">Book a Consultation</button>
+                </div>
+                <div class="services-image">
+                    <img src="https://images.unsplash.com/photo-1459499362902-55a20553e082?auto=format&fit=crop&w=1200&q=80" alt="Curator and collector viewing art" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -107,6 +193,22 @@
                         <p>Annual Visitors</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div>
+                    <h2>Join the Collector Circle</h2>
+                    <p>Get early access to new works, exhibition previews, and private event invitations.</p>
+                </div>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); showNotification('Welcome to the Collector Circle.');">
+                    <input type="email" placeholder="Email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
