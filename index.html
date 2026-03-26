@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Art Gallery - Contemporary Fine Art</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>ARTISTRY</h1>
+                <p>Contemporary Fine Art Gallery</p>
+            </div>
+            <nav class="nav">
+                <a href="#" onclick="showSection('gallery')">Gallery</a>
+                <a href="#" onclick="showSection('about')">About</a>
+                <a href="#" onclick="showSection('contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Explore Contemporary Art</h2>
+            <p>Discover stunning works by emerging and established artists</p>
+            <button class="btn" onclick="showSection('gallery')">View Gallery</button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section visible">
+        <div class="container">
+            <h2>Featured Artworks</h2>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterArtworks('all')">All</button>
+                <button class="filter-btn" onclick="filterArtworks('painting')">Painting</button>
+                <button class="filter-btn" onclick="filterArtworks('sculpture')">Sculpture</button>
+                <button class="filter-btn" onclick="filterArtworks('photography')">Photography</button>
+                <button class="filter-btn" onclick="filterArtworks('digital')">Digital</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Artworks will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Artwork Detail Modal -->
+    <div id="artworkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage"></div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p class="artist-name" id="modalArtist"></p>
+                    <p class="artwork-year" id="modalYear"></p>
+                    <p class="artwork-description" id="modalDescription"></p>
+                    <div class="artwork-details">
+                        <div class="detail-item">
+                            <span class="label">Medium:</span>
+                            <span id="modalMedium"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Dimensions:</span>
+                            <span id="modalDimensions"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Price:</span>
+                            <span id="modalPrice" class="price"></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="inquireArtwork()">Inquire Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Our Gallery</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Celebrating Contemporary Art</h3>
+                    <p>ARTISTRY is a premier contemporary art gallery dedicated to showcasing exceptional works by talented artists from around the world. We curate a diverse collection of paintings, sculptures, photography, and digital art that provoke thought and inspire emotion.</p>
+                    <p>Since our founding, we've been committed to supporting emerging artists while maintaining relationships with established masters of their craft. Our gallery provides a platform for artistic expression and a gathering place for art enthusiasts.</p>
+                    <h3>Our Mission</h3>
+                    <p>To promote contemporary art, foster cultural appreciation, and connect artists with collectors who share their vision and passion.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h4>500+</h4>
+                        <p>Artworks Exhibited</p>
+                    </div>
+                    <div class="stat">
+                        <h4>150+</h4>
+                        <p>Featured Artists</p>
+                    </div>
+                    <div class="stat">
+                        <h4>25K+</h4>
+                        <p>Annual Visitors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <h4>Address</h4>
+                        <p>123 Art Street<br>New York, NY 10001</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Phone</h4>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>info@artistry.gallery</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Hours</h4>
+                        <p>Tuesday - Sunday: 10am - 6pm<br>Monday: Closed</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 ARTISTRY Gallery. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
