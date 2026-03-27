@@ -100,10 +100,12 @@ const artworks = [
 
 let currentFilter = 'all';
 let selectedArtwork = null;
+let scrollRevealObserver = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderArtworks('all');
+    initScrollAnimations();
 });
 
 // Render artworks
@@ -127,6 +129,8 @@ function renderArtworks(filter) {
             </div>
         </div>
     `).join('');
+
+    setupArtworkReveal();
 }
 
 // Filter artworks
@@ -182,6 +186,7 @@ function showSection(sectionId) {
     
     document.getElementById(sectionId).classList.add('visible');
     window.scrollTo(0, 0);
+    initScrollAnimations();
 }
 
 // Submit contact form
@@ -263,4 +268,56 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Scroll animations
+function setupRevealTargets() {
+    document.querySelectorAll('.hero-content, .section h2, .filter-controls, .about-text, .about-stats, .contact-info, .contact-form, .footer').forEach((el) => {
+        el.classList.add('scroll-reveal');
+    });
+}
+
+function setupArtworkReveal() {
+    const cards = document.querySelectorAll('.artwork-card');
+
+    cards.forEach((card, index) => {
+        card.classList.add('scroll-reveal');
+        card.classList.remove('reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3');
+
+        if (index % 4 === 1) card.classList.add('reveal-delay-1');
+        if (index % 4 === 2) card.classList.add('reveal-delay-2');
+        if (index % 4 === 3) card.classList.add('reveal-delay-3');
+
+        if (scrollRevealObserver) {
+            scrollRevealObserver.observe(card);
+        }
+    });
+}
+
+function initScrollAnimations() {
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.scroll-reveal').forEach((el) => el.classList.add('revealed'));
+        return;
+    }
+
+    setupRevealTargets();
+
+    if (scrollRevealObserver) {
+        scrollRevealObserver.disconnect();
+    }
+
+    scrollRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                scrollRevealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        if (!el.classList.contains('revealed')) {
+            scrollRevealObserver.observe(el);
+        }
+    });
+}
 
