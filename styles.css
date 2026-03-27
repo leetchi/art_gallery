@@ -548,7 +548,7 @@ body {
 }
 
 .membership-list li::before {
-    content: "•";
+    content: "*";
     position: absolute;
     left: 0;
     color: var(--accent-color);
@@ -912,6 +912,20 @@ body {
 
     .membership-image img {
         height: 280px;
+    }
+
+    .services-content {
+        grid-template-columns: 1fr;
+    }
+
+    .services-image img {
+        height: 320px;
+    }
+
+    .newsletter-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
     }
 }
 
