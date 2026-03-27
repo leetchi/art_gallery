@@ -393,7 +393,7 @@ body {
 }
 
 .exhibition-card {
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     background-color: white;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
