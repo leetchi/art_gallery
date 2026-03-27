@@ -82,6 +82,25 @@ body {
     padding: 120px 20px;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.3)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.9;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h2 {
@@ -130,13 +149,8 @@ body {
 
 /* Sections */
 .section {
-    display: none;
     padding: 80px 20px;
     min-height: 600px;
-}
-
-.section.visible {
-    display: block;
 }
 
 .section h2 {
@@ -200,11 +214,14 @@ body {
     width: 100%;
     height: 350px;
     background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
     overflow: hidden;
+}
+
+.artwork-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .artwork-info {
@@ -299,11 +316,15 @@ body {
 .modal-image {
     background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
     height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 150px;
     border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .modal-info h2 {
@@ -362,6 +383,226 @@ body {
 .modal-info .btn-primary {
     width: 100%;
     padding: 15px;
+}
+
+/* Exhibitions */
+.exhibition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.exhibition-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exhibition-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.exhibition-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.exhibition-info {
+    padding: 24px;
+}
+
+.exhibition-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.exhibition-info p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.exhibition-meta {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+/* Artists */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.artist-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    overflow: hidden;
+}
+
+.artist-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.artist-info {
+    padding: 22px;
+}
+
+.artist-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.artist-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Events */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent-color);
+}
+
+.event-date {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+}
+
+.event-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.event-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Membership */
+.membership-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background: var(--light-gray);
+    padding: 50px;
+}
+
+.membership-text h2 {
+    margin-bottom: 18px;
+}
+
+.membership-text p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.membership-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.membership-list li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.membership-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.membership-image img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--border-color);
+}
+
+/* Professional Features */
+.pro-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.pro-feature-card {
+    border: 1px solid var(--border-color);
+    background: white;
+    padding: 28px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pro-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pro-feature-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.pro-feature-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Reveal Effects */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--delay, 0s);
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* About Section */
@@ -617,6 +858,14 @@ body {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .logo h1 {
@@ -654,6 +903,15 @@ body {
 
     .filter-controls {
         justify-content: center;
+    }
+
+    .membership-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .membership-image img {
+        height: 280px;
     }
 }
 

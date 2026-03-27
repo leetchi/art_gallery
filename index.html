@@ -1,240 +1,309 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Art Gallery - Contemporary Fine Art</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <!-- Header -->
     <header class="header">
-      <div class="container">
-        <div class="logo">
-          <h1>ARTISTRY</h1>
-          <p>Contemporary Fine Art Gallery</p>
+        <div class="container">
+            <div class="logo">
+                <h1>ARTISTRY</h1>
+                <p>Contemporary Fine Art Gallery</p>
+            </div>
+            <nav class="nav">
+                <a href="#gallery">Gallery</a>
+                <a href="#exhibitions">Exhibitions</a>
+                <a href="#artists">Artists</a>
+                <a href="#events">Events</a>
+                <a href="#membership">Membership</a>
+                <a href="#professional">Professional</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <nav class="nav">
-          <a href="#" onclick="showSection('gallery')">Gallery</a>
-          <a href="#" onclick="showSection('collections')">Collections</a>
-          <a href="#" onclick="showSection('about')">About</a>
-          <a href="#" onclick="showSection('contact')">Contact</a>
-        </nav>
-      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <h2>Explore Contemporary Art</h2>
-        <p>Discover stunning works by emerging and established artists</p>
-        <button class="btn" onclick="showSection('gallery')">
-          View Gallery
-        </button>
-      </div>
+        <div class="hero-content">
+            <h2>Explore Contemporary Art</h2>
+            <p>Discover stunning works by emerging and established artists</p>
+            <a class="btn" href="#gallery">View Gallery</a>
+        </div>
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="section visible">
-      <div class="container">
-        <h2>Featured Artworks</h2>
-
-        <div class="filter-controls">
-          <button class="filter-btn active" onclick="filterArtworks('all')">
-            All
-          </button>
-          <button class="filter-btn" onclick="filterArtworks('painting')">
-            Painting
-          </button>
-          <button class="filter-btn" onclick="filterArtworks('sculpture')">
-            Sculpture
-          </button>
-          <button class="filter-btn" onclick="filterArtworks('photography')">
-            Photography
-          </button>
-          <button class="filter-btn" onclick="filterArtworks('digital')">
-            Digital
-          </button>
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2>Featured Artworks</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterArtworks('all')">All</button>
+                <button class="filter-btn" onclick="filterArtworks('painting')">Painting</button>
+                <button class="filter-btn" onclick="filterArtworks('sculpture')">Sculpture</button>
+                <button class="filter-btn" onclick="filterArtworks('photography')">Photography</button>
+                <button class="filter-btn" onclick="filterArtworks('digital')">Digital</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Artworks will be loaded here -->
+            </div>
         </div>
+    </section>
 
-        <div class="gallery-grid" id="gallery-grid">
-          <!-- Artworks will be loaded here -->
+    <!-- Exhibitions Section -->
+    <section id="exhibitions" class="section">
+        <div class="container">
+            <h2>Current Exhibitions</h2>
+            <div class="exhibition-grid">
+                <article class="exhibition-card reveal" style="--delay: 0.05s">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80" alt="Abstract mixed media installation" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Light &amp; Form</h3>
+                        <p>Immersive installations exploring shadow, movement, and architectural space.</p>
+                        <span class="exhibition-meta">Atrium Gallery</span>
+                    </div>
+                </article>
+                <article class="exhibition-card reveal" style="--delay: 0.15s">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80" alt="Colorful abstract painting on wall" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Chromatic Fields</h3>
+                        <p>Large-scale paintings that investigate color theory, texture, and rhythm.</p>
+                        <span class="exhibition-meta">Main Hall</span>
+                    </div>
+                </article>
+                <article class="exhibition-card reveal" style="--delay: 0.25s">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Gallery scene with visitors and photography" loading="lazy">
+                    <div class="exhibition-info">
+                        <h3>Still City</h3>
+                        <p>Contemporary photography highlighting urban geometry and quiet moments.</p>
+                        <span class="exhibition-meta">Photo Wing</span>
+                    </div>
+                </article>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="section">
+        <div class="container">
+            <h2>Artist Spotlight</h2>
+            <div class="artist-grid">
+                <article class="artist-card reveal" style="--delay: 0.05s">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Portrait of artist in studio" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Amara Quinn</h3>
+                        <p>Layered acrylics and luminous gradients that evoke motion.</p>
+                    </div>
+                </article>
+                <article class="artist-card reveal" style="--delay: 0.15s">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=900&q=80" alt="Sculptor working with clay" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Luca Moretti</h3>
+                        <p>Minimalist stone sculptures focused on balance and silence.</p>
+                    </div>
+                </article>
+                <article class="artist-card reveal" style="--delay: 0.25s">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" alt="Photographer holding a camera" loading="lazy">
+                    <div class="artist-info">
+                        <h3>Jun Park</h3>
+                        <p>Documentary photography capturing evolving urban landscapes.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section">
+        <div class="container">
+            <h2>Events &amp; Talks</h2>
+            <div class="events-grid">
+                <article class="event-card reveal" style="--delay: 0.05s">
+                    <div class="event-date">First Thursday</div>
+                    <h3>Gallery Night</h3>
+                    <p>Late hours, live music, and a curator-led walkthrough of new acquisitions.</p>
+                </article>
+                <article class="event-card reveal" style="--delay: 0.15s">
+                    <div class="event-date">Monthly</div>
+                    <h3>Artist Studio Visit</h3>
+                    <p>Small-group visits to local studios with behind-the-scenes conversation.</p>
+                </article>
+                <article class="event-card reveal" style="--delay: 0.25s">
+                    <div class="event-date">Seasonal</div>
+                    <h3>Collector Roundtable</h3>
+                    <p>Insights on building collections, conservation, and emerging trends.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="section">
+        <div class="container">
+            <div class="membership-card reveal">
+                <div class="membership-text">
+                    <h2>Collector Circle</h2>
+                    <p>Receive early access to new works, private viewings, and personalized acquisition guidance.</p>
+                    <ul class="membership-list">
+                        <li>Private previews and artist meetups</li>
+                        <li>Priority acquisition holds</li>
+                        <li>Annual collection report</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="showSection('contact')">Request Membership</button>
+                </div>
+                <div class="membership-image">
+                    <img src="https://images.unsplash.com/photo-1459499362902-55a20553e082?auto=format&fit=crop&w=1200&q=80" alt="Collector viewing art with curator" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Features Section -->
+    <section id="professional" class="section">
+        <div class="container">
+            <h2>Professional Services</h2>
+            <div class="pro-feature-grid">
+                <article class="pro-feature-card reveal" style="--delay: 0.05s">
+                    <h3>Art Advisory</h3>
+                    <p>Personalized acquisition strategy, market insights, and portfolio planning.</p>
+                </article>
+                <article class="pro-feature-card reveal" style="--delay: 0.15s">
+                    <h3>Condition Reports</h3>
+                    <p>Detailed documentation, conservation notes, and provenance summaries.</p>
+                </article>
+                <article class="pro-feature-card reveal" style="--delay: 0.25s">
+                    <h3>Installation &amp; Framing</h3>
+                    <p>On-site placement, museum-grade mounting, and custom framing options.</p>
+                </article>
+                <article class="pro-feature-card reveal" style="--delay: 0.35s">
+                    <h3>Collection Management</h3>
+                    <p>Inventory, insurance coordination, and long-term collection care.</p>
+                </article>
+            </div>
+        </div>
     </section>
 
     <!-- Artwork Detail Modal -->
     <div id="artworkModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-body">
-          <div class="modal-image" id="modalImage"></div>
-          <div class="modal-info">
-            <h2 id="modalTitle"></h2>
-            <p class="artist-name" id="modalArtist"></p>
-            <p class="artwork-year" id="modalYear"></p>
-            <p class="artwork-description" id="modalDescription"></p>
-            <div class="artwork-details">
-              <div class="detail-item">
-                <span class="label">Medium:</span>
-                <span id="modalMedium"></span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Dimensions:</span>
-                <span id="modalDimensions"></span>
-              </div>
-              <div class="detail-item">
-                <span class="label">Price:</span>
-                <span id="modalPrice" class="price"></span>
-              </div>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage"></div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p class="artist-name" id="modalArtist"></p>
+                    <p class="artwork-year" id="modalYear"></p>
+                    <p class="artwork-description" id="modalDescription"></p>
+                    <div class="artwork-details">
+                        <div class="detail-item">
+                            <span class="label">Medium:</span>
+                            <span id="modalMedium"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Dimensions:</span>
+                            <span id="modalDimensions"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Price:</span>
+                            <span id="modalPrice" class="price"></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="inquireArtwork()">Inquire Now</button>
+                </div>
             </div>
-            <button class="btn btn-primary" onclick="inquireArtwork()">
-              Inquire Now
-            </button>
-          </div>
         </div>
-      </div>
     </div>
-
-    <!-- Featured Collections Section -->
-    <section id="collections" class="section">
-      <div class="container">
-        <h2>Featured Collections</h2>
-        <div class="collections-grid">
-          <div class="collection-banner modern">
-            <div class="banner-content">
-              <h3>Modern Masters</h3>
-              <p>Contemporary works by visionary artists</p>
-              <button class="btn btn-banner">Explore</button>
-            </div>
-          </div>
-          <div class="collection-banner abstract">
-            <div class="banner-content">
-              <h3>Abstract Expressions</h3>
-              <p>Discover bold and imaginative creations</p>
-              <button class="btn btn-banner">Explore</button>
-            </div>
-          </div>
-          <div class="collection-banner digital">
-            <div class="banner-content">
-              <h3>Digital & Tech Art</h3>
-              <p>Cutting-edge art in the digital realm</p>
-              <button class="btn btn-banner">Explore</button>
-            </div>
-          </div>
-          <div class="collection-banner sculpture">
-            <div class="banner-content">
-              <h3>Sculpture & Form</h3>
-              <p>Three-dimensional masterpieces</p>
-              <button class="btn btn-banner">Explore</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-      <div class="container">
-        <h2>About Our Gallery</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <h3>Celebrating Contemporary Art</h3>
-            <p>
-              ARTISTRY is a premier contemporary art gallery dedicated to
-              showcasing exceptional works by talented artists from around the
-              world. We curate a diverse collection of paintings, sculptures,
-              photography, and digital art that provoke thought and inspire
-              emotion.
-            </p>
-            <p>
-              Since our founding, we've been committed to supporting emerging
-              artists while maintaining relationships with established masters
-              of their craft. Our gallery provides a platform for artistic
-              expression and a gathering place for art enthusiasts.
-            </p>
-            <h3>Our Mission</h3>
-            <p>
-              To promote contemporary art, foster cultural appreciation, and
-              connect artists with collectors who share their vision and
-              passion.
-            </p>
-          </div>
-          <div class="about-stats">
-            <div class="stat">
-              <h4>500+</h4>
-              <p>Artworks Exhibited</p>
+        <div class="container">
+            <h2>About Our Gallery</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Celebrating Contemporary Art</h3>
+                    <p>ARTISTRY is a premier contemporary art gallery dedicated to showcasing exceptional works by talented artists from around the world. We curate a diverse collection of paintings, sculptures, photography, and digital art that provoke thought and inspire emotion.</p>
+                    <p>Since our founding, we have been committed to supporting emerging artists while maintaining relationships with established masters of their craft. Our gallery provides a platform for artistic expression and a gathering place for art enthusiasts.</p>
+                    <h3>Our Mission</h3>
+                    <p>To promote contemporary art, foster cultural appreciation, and connect artists with collectors who share their vision and passion.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h4>500+</h4>
+                        <p>Artworks Exhibited</p>
+                    </div>
+                    <div class="stat">
+                        <h4>150+</h4>
+                        <p>Featured Artists</p>
+                    </div>
+                    <div class="stat">
+                        <h4>25K+</h4>
+                        <p>Annual Visitors</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-              <h4>150+</h4>
-              <p>Featured Artists</p>
-            </div>
-            <div class="stat">
-              <h4>25K+</h4>
-              <p>Annual Visitors</p>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-      <div class="container">
-        <h2>Get In Touch</h2>
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Contact Information</h3>
-            <div class="info-item">
-              <h4>Address</h4>
-              <p>123 Art Street<br />New York, NY 10001</p>
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <h4>Address</h4>
+                        <p>123 Art Street<br>New York, NY 10001</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Phone</h4>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>info@artistry.gallery</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Hours</h4>
+                        <p>Tuesday - Sunday: 10am - 6pm<br>Monday: Closed</p>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-            <div class="info-item">
-              <h4>Phone</h4>
-              <p>(555) 123-4567</p>
-            </div>
-            <div class="info-item">
-              <h4>Email</h4>
-              <p>info@artistry.gallery</p>
-            </div>
-            <div class="info-item">
-              <h4>Hours</h4>
-              <p>Tuesday - Sunday: 10am - 6pm<br />Monday: Closed</p>
-            </div>
-          </div>
-          <form class="contact-form" onsubmit="submitContact(event)">
-            <div class="form-group">
-              <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" required />
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" required />
-            </div>
-            <div class="form-group">
-              <label for="contact-subject">Subject</label>
-              <input type="text" id="contact-subject" required />
-            </div>
-            <div class="form-group">
-              <label for="contact-message">Message</label>
-              <textarea id="contact-message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>&copy; 2024 ARTISTRY Gallery. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#">Instagram</a>
-        <a href="#">Twitter</a>
-        <a href="#">Facebook</a>
-      </div>
+        <p>&copy; 2024 ARTISTRY Gallery. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
